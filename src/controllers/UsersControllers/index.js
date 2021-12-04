@@ -44,5 +44,23 @@ module.exports = {
   },
 
   //buscar por um usuário especifico
-  async getUserById(resquest, response) {},
+  async getUserById(request, response) {
+    const { user_id } = request.params;
+
+    try {
+      const userOne = await User.findById(user_id);
+
+      return response.status(200).json({
+        error: false,
+        user: userOne,
+      });
+    } catch (error) {
+      if (error) {
+        return response.status(400).json({
+          error: true,
+          messeger: "Error em buscar usuários tente mais tarde !",
+        });
+      }
+    }
+  },
 };
