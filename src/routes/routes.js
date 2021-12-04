@@ -3,6 +3,7 @@ const router = Router();
 
 const UserController = require("../controllers/UsersControllers"); //user controller
 const SessionController = require("../controllers/SessionControllers"); // sesão de usuário
+const ProductController = require(".././controllers/ProductController");
 router.get("/index", (request, response) => {
   response.json({
     error: false,
@@ -17,7 +18,7 @@ router.get("/users/:user_id", UserController.getUserById); // buscar usuário es
 router.post("/login", SessionController.createSessionUser); // fazer login do usuário
 
 //PRODUTOS
-router.post("/product/:user_id"); //criar pruduto(passar o ud para sabermos quem foi que crio o produto)
+router.post("/products/:user_id", ProductController.createProduct); //criar pruduto(passar o ud para sabermos quem foi que crio o produto)
 router.get("/products"); // listagem de todos os produtos
 router.get("/products/:user_id"); // buscar produto de um usuario especifico
 router.get("/products/:product_id"); // buscar um produto especifico

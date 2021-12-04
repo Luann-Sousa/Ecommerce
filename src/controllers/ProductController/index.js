@@ -11,6 +11,33 @@ module.exports = {
       productImage,
       username,
     } = request.body;
+    const { user_id } = request.params;
+
+    try {
+      const newProduct = await Produtc(
+        {
+          productName,
+          productDescription,
+          productPrice,
+          productQuatity,
+          productImage,
+          username,
+        },
+        user_id
+      );
+
+      return response.status(201).json({
+        error: false,
+        product: newProduct,
+      });
+    } catch (error) {
+      if (error) {
+        return response.status(400).json({
+          error: true,
+          messeger: "Error em buscar usuários tente mais tarde !",
+        });
+      }
+    }
   },
   //listagem ou buscar de todos usuarios que criaram produtos
   async getUserProduct(request, response) {},
