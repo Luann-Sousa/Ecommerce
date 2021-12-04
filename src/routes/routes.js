@@ -12,7 +12,7 @@ router.get("/index", (request, response) => {
 
 //USUÁRIOS
 router.post("/users", UserController.createUser); // criar usuários
-router.get("/users"); // buscar usuários
+router.get("/users", UserController.getUsers); // buscar todos usuários
 router.get("/users/:user_id"); // buscar usuário especifico
 router.post("/login"); // fazer login do usuário
 
