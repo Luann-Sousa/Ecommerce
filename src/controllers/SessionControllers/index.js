@@ -1,5 +1,6 @@
 const User = require("../../models/User");
 module.exports = {
+  //fazendo login do usarios
   async createSessionUser(request, response) {
     const { username } = request.body;
 
