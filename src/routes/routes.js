@@ -1,6 +1,7 @@
 const { Router } = require("express"); //pegando a função do express para lidarmos com routeamento
-
 const router = Router();
+
+const UserController = require("../controllers/UsersControllers"); //user controller
 
 router.get("/index", (request, response) => {
   response.json({
@@ -10,7 +11,7 @@ router.get("/index", (request, response) => {
 });
 
 //USUÁRIOS
-router.post("/users"); // criar usuários
+router.post("/users", UserController.createUser); // criar usuários
 router.get("/users"); // buscar usuários
 router.get("/users/:user_id"); // buscar usuário especifico
 router.post("/login"); // fazer login do usuário
