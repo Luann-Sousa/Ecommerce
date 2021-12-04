@@ -2,7 +2,7 @@ const { Router } = require("express"); //pegando a função do express para lida
 const router = Router();
 
 const UserController = require("../controllers/UsersControllers"); //user controller
-
+const SessionController = require("../controllers/SessionControllers"); // sesão de usuário
 router.get("/index", (request, response) => {
   response.json({
     error: false,
@@ -14,7 +14,7 @@ router.get("/index", (request, response) => {
 router.post("/users", UserController.createUser); // criar usuários
 router.get("/users", UserController.getUsers); // buscar todos usuários
 router.get("/users/:user_id", UserController.getUserById); // buscar usuário especifico
-router.post("/login"); // fazer login do usuário
+router.post("/login", SessionController.createSessionUser); // fazer login do usuário
 
 //PRODUTOS
 router.post("/product/:user_id"); //criar pruduto(passar o ud para sabermos quem foi que crio o produto)
