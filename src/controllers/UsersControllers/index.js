@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-  //buscar todos usuario
+  //buscar todos usuário
   async getUsers(request, response) {
     try {
       const users = await User.find();
@@ -42,4 +42,7 @@ module.exports = {
       }
     }
   },
+
+  //buscar por um usuário especifico
+  async getUserById(resquest, response) {},
 };
