@@ -1,6 +1,7 @@
 const User = require("../../models/User");
 
 module.exports = {
+  //criar um usuário
   async createUser(request, response) {
     const { username } = request.body;
 
@@ -22,4 +23,7 @@ module.exports = {
       }
     }
   },
+
+  //buscar todos usuario
+  async getUserOne(request, response) {},
 };
