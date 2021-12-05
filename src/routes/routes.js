@@ -16,8 +16,11 @@ router.post("/products/:user_id", ProductController.createProduct); //criar prud
 router.get("/products", ProductController.getUserAllProduct); // listagem de todos os produtos
 router.get("/products/:user_id"); // buscar produto de um usuario especifico
 router.get("/products/:product_id", ProductController.getProductById); // buscar um produto especifico
-router.patch("/products/user_id/:product_id"); // atualizar um produto
-router.delete("/products/:user_id/:product_id"); // deletar o produto tem que manda id_user e id_product
+router.patch("/products/:user_id/:product_id", ProductController.updateProduct); // atualizar um produto
+router.delete(
+  "/products/:user_id/:product_id",
+  ProductController.deleteProduct
+); // deletar o produto tem que manda id_user e id_product
 
 //CARD/COMPRA
 router.post("/cart/:user_id"); // fazer um comprar

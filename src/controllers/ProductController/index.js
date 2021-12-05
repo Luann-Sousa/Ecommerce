@@ -56,7 +56,25 @@ module.exports = {
   //atualização de um produto
   async updateProduct(request, response) {},
   //exclusão de um produto
-  async deleteProduct(request, response) {},
+  async deleteProduct(request, response) {
+    const { product_id } = request.params;
+
+    try {
+      const productDeleted = await Product.findByIdAndDelete(product_id);
+
+      response.status(200).json({
+        error: false,
+        productDeleted: productDeleted,
+      });
+    } catch (error) {
+      if (error) {
+        return response.status(400).json({
+          error: true,
+          messeger: "Error em excluir um produto tente mais tarde !",
+        });
+      }
+    }
+  },
   //buscar todos os produto
   async getProductBy(request, response) {},
 };
