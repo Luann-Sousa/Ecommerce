@@ -28,7 +28,21 @@ module.exports = {
   async getProduct(request, response) {
     const { product_id } = request.params;
 
-    const product = await Product.findById({});
+    try {
+      const productOne = await Product.findById(product_id);
+
+      return response.status(200).json({
+        error: false,
+        product: productOne,
+      });
+    } catch (error) {
+      if (error) {
+        return response.status(400).json({
+          error: true,
+          messeger: "Error em buscar um produto tente mais tarde !",
+        });
+      }
+    }
   },
   //listagem ou buscar de todos usuarios que criaram produtos
   async getUserProduct(request, response) {
