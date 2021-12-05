@@ -1,42 +1,27 @@
-const Produtc = require("../../models/Product");
+const Product = require("../../models/Product");
 
 module.exports = {
   //criação de um produto
   async createProduct(request, response) {
-    const {
-      productName,
-      productDescription,
-      productPrice,
-      productQuatity,
-      productImage,
-      username,
-    } = request.body;
+    const dateProdutcs = request.body;
     const { user_id } = request.params;
 
+    const data = { user_id, ...dateProdutcs };
+
     try {
-      const newProduct = await Produtc(
-        {
-          productName,
-          productDescription,
-          productPrice,
-          productQuatity,
-          productImage,
-          username,
-        },
-        user_id
-      );
+      const product = await Product.create(data);
 
       return response.status(201).json({
         error: false,
-        product: newProduct,
+        messeger: "Produto foi criando",
+        produtuc: product,
       });
-    } catch (error) {
-      if (error) {
-        return response.status(400).json({
-          error: true,
-          messeger: "Error em buscar usuários tente mais tarde !",
-        });
-      }
+    } catch (error) {}
+    if (error) {
+      return response.status(201).json({
+        error: true,
+        messeger: "Não foi possivel criar seu produto, tente mais tarde !",
+      });
     }
   },
   //listagem ou buscar de todos usuarios que criaram produtos

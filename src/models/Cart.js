@@ -10,7 +10,7 @@ const SchemaCart = new mongoose.Schema({
   ],
   username: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    required: "User",
   },
   address: {
     street: {
@@ -29,11 +29,9 @@ const SchemaCart = new mongoose.Schema({
   pavement: {
     card: {
       type: String,
-      required: false,
     },
     cvc: {
       type: String,
-      required: false,
     },
   },
 });
