@@ -25,7 +25,7 @@ module.exports = {
     }
   },
   //buscar por apenas um produto
-  async getProduct(request, response) {
+  async getProductById(request, response) {
     const { product_id } = request.params;
 
     try {
@@ -45,7 +45,7 @@ module.exports = {
     }
   },
   //listagem ou buscar de todos usuarios que criaram produtos
-  async getUserProduct(request, response) {
+  async getUserAllProduct(request, response) {
     const produtcs = await Product.find();
 
     return response.status(200).json({
@@ -58,5 +58,5 @@ module.exports = {
   //exclusão de um produto
   async deleteProduct(request, response) {},
   //buscar todos os produto
-  async getProductById(request, response) {},
+  async getProductBy(request, response) {},
 };
