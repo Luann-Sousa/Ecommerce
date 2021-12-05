@@ -13,7 +13,7 @@ router.post("/login", SessionController.createSessionUser); // fazer login do us
 
 //PRODUTOS
 router.post("/products/:user_id", ProductController.createProduct); //criar pruduto(passar o ud para sabermos quem foi que crio o produto)
-router.get("/products"); // listagem de todos os produtos
+router.get("/products", ProductController.getUserProduct); // listagem de todos os produtos
 router.get("/products/:user_id"); // buscar produto de um usuario especifico
 router.get("/products/:product_id"); // buscar um produto especifico
 router.patch("/products/user_id/:product_id"); // atualizar um produto

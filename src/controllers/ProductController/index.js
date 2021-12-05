@@ -25,7 +25,14 @@ module.exports = {
     }
   },
   //listagem ou buscar de todos usuarios que criaram produtos
-  async getUserProduct(request, response) {},
+  async getUserProduct(request, response) {
+    const produtcs = await Product.find();
+
+    return response.status(200).json({
+      error: "false",
+      products: produtcs,
+    });
+  },
   //atualização de um produto
   async updateProduct(request, response) {},
   //exclusão de um produto
