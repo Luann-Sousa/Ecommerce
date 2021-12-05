@@ -4,12 +4,6 @@ const router = Router();
 const UserController = require("../controllers/UsersControllers"); //user controller
 const SessionController = require("../controllers/SessionControllers"); // sesão de usuário
 const ProductController = require(".././controllers/ProductController");
-router.get("/index", (request, response) => {
-  response.json({
-    error: false,
-    messeger: "Olá, ProgramadorWL",
-  });
-});
 
 //USUÁRIOS
 router.post("/users", UserController.createUser); // criar usuários
