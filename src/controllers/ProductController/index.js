@@ -24,6 +24,12 @@ module.exports = {
       });
     }
   },
+  //buscar por apenas um produto
+  async getProduct(request, response) {
+    const { product_id } = request.params;
+
+    const product = await Product.findById({});
+  },
   //listagem ou buscar de todos usuarios que criaram produtos
   async getUserProduct(request, response) {
     const produtcs = await Product.find();
@@ -38,7 +44,5 @@ module.exports = {
   //exclusão de um produto
   async deleteProduct(request, response) {},
   //buscar todos os produto
-  async getProduct(request, response) {},
-  //buscar por apenas um produto
   async getProductById(request, response) {},
 };
