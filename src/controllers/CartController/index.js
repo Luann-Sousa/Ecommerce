@@ -14,5 +14,23 @@ module.exports = {
     });
   },
   //buscando todas as compras
-  async cartGetAll(request, resposse) {},
+  async cartGetAll(request, response) {
+    try {
+      const { product_id } = request.params;
+      const getcartALl = await Cart.findById(product_id);
+      console.log(getcartALl);
+
+      return response.json({
+        error: false,
+        cards: getcartALl,
+      });
+    } catch (error) {
+      if (error) {
+        return response.json({
+          error: true,
+          getcartALl,
+        });
+      }
+    }
+  },
 };

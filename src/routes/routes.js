@@ -25,7 +25,7 @@ router.delete(
 
 //CARD/COMPRA
 router.post("/carts/:user_id", CartController.createCart); // fazer um comprar
-router.get("/cart/user_id"); // todos os cartão de um usuário
+router.get("/carts/:product_id", CartController.cartGetAll); // todos os cartão de um usuário
 router.get("/cart/:cart_id"); // bucar cartão
 
 module.exports = router; // exportando nosso arquivo de rotas
