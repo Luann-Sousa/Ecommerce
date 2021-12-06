@@ -26,7 +26,7 @@ const SchemaCart = new mongoose.Schema({
       required: true,
     },
   },
-  pavement: {
+  payment: {
     card: {
       type: String,
     },

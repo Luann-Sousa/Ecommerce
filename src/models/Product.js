@@ -20,7 +20,7 @@ const SchemaProduct = new mongoose.Schema({
     type: String,
   },
   username: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
 });

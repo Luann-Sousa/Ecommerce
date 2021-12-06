@@ -6,7 +6,7 @@ module.exports = {
     const dateProdutcs = request.body;
     const { user_id } = request.params;
 
-    const data = { user_id, ...dateProdutcs };
+    const data = { ...dateProdutcs, username: user_id };
 
     try {
       const product = await Product.create(data);
@@ -54,7 +54,25 @@ module.exports = {
     });
   },
   //atualização de um produto
-  async updateProduct(request, response) {},
+  async updateProduct(request, response) {
+    const { product_id } = request.params;
+    const body = request.body;
+    try {
+      const productUpdated = await Product.findByIdAndUpdate(product_id, body);
+
+      return response.status(200).json({
+        error: true,
+        product: productUpdated,
+      });
+    } catch (error) {
+      if (error) {
+        return response.status(400).json({
+          error: true,
+          messeger: "Error em atualizar um produto tente mais tarde !",
+        });
+      }
+    }
+  },
   //exclusão de um produto
   async deleteProduct(request, response) {
     const { product_id } = request.params;

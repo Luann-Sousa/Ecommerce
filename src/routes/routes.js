@@ -4,6 +4,7 @@ const router = Router();
 const UserController = require("../controllers/UsersControllers"); //user controller
 const SessionController = require("../controllers/SessionControllers"); // sesão de usuário
 const ProductController = require(".././controllers/ProductController");
+const CartController = require("../controllers/CartController");
 
 //USUÁRIOS
 router.post("/users", UserController.createUser); // criar usuários
@@ -16,14 +17,14 @@ router.post("/products/:user_id", ProductController.createProduct); //criar prud
 router.get("/products", ProductController.getUserAllProduct); // listagem de todos os produtos
 router.get("/products/:user_id"); // buscar produto de um usuario especifico
 router.get("/products/:product_id", ProductController.getProductById); // buscar um produto especifico
-router.patch("/products/:user_id/:product_id", ProductController.updateProduct); // atualizar um produto
+router.put("/products/:user_id/:product_id", ProductController.updateProduct); // atualizar um produto
 router.delete(
   "/products/:user_id/:product_id",
   ProductController.deleteProduct
 ); // deletar o produto tem que manda id_user e id_product
 
 //CARD/COMPRA
-router.post("/cart/:user_id"); // fazer um comprar
+router.post("/carts/:user_id", CartController.createCart); // fazer um comprar
 router.get("/cart/user_id"); // todos os cartão de um usuário
 router.get("/cart/:cart_id"); // bucar cartão
 
