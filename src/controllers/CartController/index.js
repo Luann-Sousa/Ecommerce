@@ -7,10 +7,12 @@ module.exports = {
     const data = request.body;
 
     const card = await Cart.create({ ...data, username: user_id });
-    console.log(card);
+
     return response.status(201).json({
       error: false,
       cart: card,
     });
   },
+  //buscando todas as compras
+  async cartGetAll(request, resposse) {},
 };

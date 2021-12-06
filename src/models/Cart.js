@@ -28,10 +28,12 @@ const SchemaCart = new mongoose.Schema({
   },
   payment: {
     card: {
-      type: String,
-    },
-    cvc: {
-      type: String,
+      number_card: {
+        type: String,
+      },
+      cvc: {
+        type: String,
+      },
     },
   },
 });
